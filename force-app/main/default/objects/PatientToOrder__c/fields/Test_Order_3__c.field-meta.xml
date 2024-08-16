@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_Order_3__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Test Order 3</label>
+    <referenceTo>TestOrder__c</referenceTo>
+    <relationshipLabel>PatientToOrder (Test Order 3)</relationshipLabel>
+    <relationshipName>PatientToOrder2</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

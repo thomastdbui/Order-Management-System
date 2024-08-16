@@ -1,0 +1,22 @@
+// Use .soql files to store SOQL queries.
+// You can execute queries in VS Code by selecting the
+//     query text and running the command:
+//     SFDX: Execute SOQL Query with Currently Selected Text
+
+SELECT FIELDS(ALL) FROM Ordering_Account__c LIMIT 200
+SELECT ALL ROWS FROM Patient__c LIMIT 1
+
+
+
+SELECT Id, FirstName__c, LastName__c, Phone__c, Email__c, NPI__c FROM Treating_Physician_Information__c LIMIT 200
+
+
+SELECT FirstName__c, LastName__c, Phone__c, Email__c, NPI__c FROM Treating_Physician_Information__c WHERE FirstName__c LIKE 'mi' OR LastName__c LIKE 'mi' OR Email__c LIKE  'mi' OR NPI__c LIKE 'mi' LIMIT 200
+
+
+
+SELECT FirstName__c, LastName__c, Phone__c, Email__c, NPI__c FROM Treating_Physician_Information__c WHERE FirstName__c = 'Treating' and LastName__c = 'Physician' and NPI__c = '1234567890'
+
+
+
+SELECT Id,Test_Order_1__c,Test_Order_2__c,Test_Order_3__c,Test_Order_4__c,Test_Order_5__c FROM PatientToOrder__c WHERE Patient__c = 'a0IDS000009Lr9h2AC'

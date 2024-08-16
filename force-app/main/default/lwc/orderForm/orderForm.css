@@ -1,0 +1,125 @@
+
+.slds-form-element {
+    margin-top: 10px; 
+}
+
+.lightning-input, .lightning-radio-group {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.lightning-input:focus, .lightning-radio-group:focus {
+    border-color: #4d90fe;
+}
+
+.lightning-input[type="date"] {
+    padding: 10px 40px 10px 10px;
+}
+
+.form-container {
+    max-width: 1200px; /* Set your desired max width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Optional: Add some padding */
+}
+
+
+/*
+
+.slds-form-element {
+    margin-top: 10px;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.lightning-input, .lightning-radio-group {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    padding: 10px;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.lightning-input:focus, .lightning-radio-group:focus {
+    border-color: #4d90fe;
+}
+
+.lightning-input[type="date"] {
+    padding: 10px 40px 10px 10px;
+    font-family: 'GT Sectra Book', serif;
+}
+
+Styles extracted from fmi_css_1.css and fmi_css_2.css
+.slds-card {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.slds-tabs_card .slds-card,
+.slds-tabs_card .slds-card-wrapper,
+.slds-tabs_card.slds-tabs_card .slds-card,
+.slds-tabs_card.slds-tabs_card .slds-card-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.slds-tabs_card .slds-card__header,
+.slds-tabs_card .slds-card__body,
+.slds-tabs_card .slds-card__footer,
+.slds-tabs_card.slds-tabs_card .slds-card__header,
+.slds-tabs_card.slds-tabs_card .slds-card__body,
+.slds-tabs_card.slds-tabs_card .slds-card__footer {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.slds-card-wrapper .slds-card,
+.slds-card-wrapper .slds-card-wrapper,
+.slds-modal .slds-card,
+.slds-modal .slds-card-wrapper,
+.slds-tabs_default .slds-card,
+.slds-tabs_default .slds-card-wrapper,
+.slds-tabs--default .slds-card,
+.slds-tabs--default .slds-card-wrapper,
+.slds-tabs_card .slds-card,
+.slds-tabs_card .slds-card-wrapper,
+.slds-tabs_card.slds-tabs_card .slds-card,
+.slds-tabs_card.slds-tabs_card .slds-card-wrapper {
+    background: white;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.slds-card .slds-card_boundary,
+.slds-modal .slds-card_boundary,
+.slds-tabs_default .slds-card_boundary,
+.slds-tabs--default .slds-card_boundary {
+    border: 1px solid #dddbda;
+    border-radius: 0.25rem;
+    font-family: 'GT Sectra Book', serif;
+}
+
+.slds-tabs_card,
+.slds-tabs_card.slds-tabs_card {
+    background: white;
+    padding: 0.75rem 1rem;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    font-family: 'GT Sectra Book', serif;
+}
+
+body, .slds-card, .lightning-input, .lightning-radio-group {
+    font-family: 'GT Sectra Book', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+*/

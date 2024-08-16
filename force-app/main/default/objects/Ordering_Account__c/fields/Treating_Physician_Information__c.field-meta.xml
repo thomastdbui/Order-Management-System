@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Treating_Physician_Information__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Treating Physician Information</label>
+    <referenceTo>Treating_Physician_Information__c</referenceTo>
+    <relationshipLabel>Treating Physician Information</relationshipLabel>
+    <relationshipName>Ordering_Account_to_Physician</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

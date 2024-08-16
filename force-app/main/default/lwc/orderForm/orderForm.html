@@ -1,0 +1,203 @@
+<template>
+
+    <div class="slds-card slds-var-p-around_medium form-container">
+        <lightning-card>
+        <template if:false={isFormSubmitted}>
+        <lightning-layout multiple-rows="true" class="slds-var-p-around_medium">
+            <lightning-layout-item size="12">
+                <h1 class="slds-text-heading_large">Foundation Medicine</h1>
+            </lightning-layout-item>
+        </lightning-layout>        
+        <div data-id="patientInfo" class="patient-info slds-var-p-around_medium">
+            <lightning-card >
+                <h2 class="slds-text-heading_medium">Patient Information</h2>
+                <lightning-card title="Patient Lookup" icon-name="standard:account">
+                    <lightning-input value={patientSearchTerm} onchange={handlePatientInputChange} placeholder="Search patient by first name, last name, address, email, phone, MRN"></lightning-input>
+                    <template if:true={patients}>
+                        <lightning-datatable 
+                            data={patients} 
+                            columns={patientColumns} 
+                            onrowselection={handlePatientRowSelection} 
+                            key-field="Id"
+                            max-row-selection="1">
+                        </lightning-datatable>
+                    </template>
+                    <template if:true={patientError}>
+                        <p class="slds-text-color_error">{patientError}</p>
+                    </template>
+                </lightning-card>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input label="First Name" name="firstName" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input label="Last Name" name="lastName" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                        <lightning-input label="M.I." name="mi"></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-input type="date" label="Date of Birth" name="dob" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-radio-group
+                            data-id="patientSex"
+                            name="sex"
+                            label="Sex"
+                            options={sexOptions}
+                            required>
+                        </lightning-radio-group>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input label="Medical Record Number" name="mrn" pattern="[0-9\-]*"
+                        message-when-pattern-mismatch="Only numbers and hyphens are allowed." required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        
+                        <div class="slds-var-p-vertical_large">
+                            <lightning-input-address
+                                data-id="patientAddress"
+                                show-address-lookup
+                                address-lookup-placeholder = "Search Address"
+                                address-label="Patient Address"
+                                street-label="Street"
+                                city-label="City"
+                                country-label="Country"
+                                province-label="State"
+                                postal-code-label="Postal Code"
+                                field-level-help="Enter the patient's address"
+                                required
+                            >
+                            </lightning-input-address>
+                        </div>
+
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-input label="Patient Phone" value={patientPhoneNumber} onchange={handlePatientPhoneChange} name="patientPhone" type="tel" formatter="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" message-when-pattern-mismatch="Please enter a valid telephone number in the format XXX-XXX-XXXX"></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning-input label="Patient Email" name="patientEmail" type="email" message-when-bad-input="Please enter a valid email" ></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+
+        <div data-id="physicianInfo" class="physician-info slds-var-p-around_medium">
+            
+            <lightning-card>
+                <h2 class="slds-text-heading_medium">Treating Physician Information</h2> 
+                <lightning-card title="Physician Lookup" icon-name="standard:account">
+                    <lightning-input value={physicianSearchTerm} onchange={handlePhysicianInputChange} placeholder="Search physician by first name, last name, NPI"></lightning-input>
+                    <template if:true={physicians}>
+                        <lightning-datatable 
+                            data={physicians} 
+                            columns={physicianColumns} 
+                            onrowselection={handlePhysicianRowSelection} 
+                            key-field="Id"
+                            max-row-selection="1">
+                        </lightning-datatable>
+                    </template>
+                    <template if:true={physicianError}>
+                        <p class="slds-text-color_error">{physicianError}</p>
+                    </template>
+                </lightning-card>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_3-of-6">
+                        <lightning-input label="First Name" name="physicianFirstName" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_3-of-6">
+                        <lightning-input label="Last Name" name="physicianLastName" required></lightning-input>
+                    </div>
+                    
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning-input label="Physician Phone" name="physicianPhone" value={physicianPhoneNumber} onchange={handlePhysicianPhoneChange} type="tel" formatter="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" message-when-pattern-mismatch="Please enter a valid telephone number in the format XXX-XXX-XXXX" ></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning-input label="Physician Email" name="physicianEmail"  type="email" ></lightning-input>
+                            </div>
+                            <div class="slds-col slds-size_2-of-6">
+                                <lightning-input label="NPI" name="physicianNpi" type="text" required pattern="\d{10}" message-when-pattern-mismatch="NPI must be a 10-digit number"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+        <div data-id="orderingAccountInfo" class="facility-info slds-var-p-around_medium">
+            <lightning-card>
+                <h2 class="slds-text-heading_medium">Ordering Account Information</h2>
+                <lightning-card title="Ordering Account Lookup" icon-name="standard:account">
+                    <lightning-input value={facilitySearchTerm} onchange={handleFacilityInputChange} placeholder="Search facility by name, address"></lightning-input>
+                    <template if:true={facilities}>
+                        <lightning-datatable 
+                            data={facilities} 
+                            columns={facilityColumns} 
+                            onrowselection={handleFacilityRowSelection} 
+                            key-field="Id"
+                            max-row-selection="1">
+                        </lightning-datatable>
+                    </template>
+                    <template if:true={facilityError}>
+                        <p class="slds-text-color_error">{facilityError}</p>
+                    </template>
+                </lightning-card>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input label="Facility Name" name="orderingFacilityName" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-var-p-vertical_large">
+                            <lightning-input-address
+                                data-id="orderingAddress"
+                                show-address-lookup
+                                address-lookup-placeholder = "Search Address"
+                                address-label="Ordering Address"
+                                street-label="Street"
+                                city-label="City"
+                                country-label="Country"
+                                province-label="State"
+                                postal-code-label="Postal Code"
+                                field-level-help="Enter the ordering address"
+                                required
+                            >
+                            </lightning-input-address>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Phone" name="orderingPhone" value={orderingPhoneNumber} onchange={handleOrderingPhoneChange} type="tel" formatter="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" message-when-pattern-mismatch="Please enter a valid telephone number in the format XXX-XXX-XXXX"></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input label="Email" name="orderingEmail" type="email"></lightning-input>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+
+        <div class="slds-var-p-around_medium">
+            <lightning-combobox
+                name="testMenu"
+                label="Select Desired Tests"
+                placeholder="Select"
+                options={testOptions}
+                required>
+            </lightning-combobox>
+        </div>
+
+        <div class="slds-var-p-around_medium slds-align_absolute-center">
+            <lightning-button label="Order Test" onclick={handleOrderTest} variant="brand"></lightning-button>
+        </div>
+    </template>
+    <template if:true={isFormSubmitted}>
+        <div class="slds-var-p-around_medium slds-align_absolute-center">
+            <h2 style="font-size: 2em;">Form has been submitted successfully!</h2>
+            <lightning-icon icon-name="utility:check" size="large" alternative-text="Success" class="slds-m-bottom_small" style="color: green;"></lightning-icon>
+        </div>
+    </template>
+</lightning-card>
+    </div>
+
+</template>

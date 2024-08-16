@@ -1,0 +1,85 @@
+# Order Management System
+
+This project is a Salesforce DX project for an Order Management System. It includes Lightning Web Components (LWC), Apex classes, and other Salesforce metadata to manage orders within Salesforce.
+
+## Project Structure
+
+The project has the following structure:
+
+
+
+### Key Files and Directories
+
+- **.forceignore**: Specifies files and directories to ignore during Salesforce DX operations.
+- **.gitignore**: Specifies files and directories to ignore in Git.
+- **.localdevserver/**: Contains local development server assets and configurations.
+- **.sf/**: Contains Salesforce CLI configuration and organization-specific data.
+- **.sfdx/**: Contains Salesforce DX configuration and tools.
+- **chat.json**: Configuration for chat-related features.
+- **config/**: Contains project configuration files.
+  - **project-scratch-def.json**: Defines the configuration for scratch orgs.
+- **force-app/**: Contains the main source code for the Salesforce application.
+  - **main/default/**: Contains the default Salesforce metadata, including Apex classes, LWCs, and profiles.
+- **jest.config.js**: Configuration for Jest, a JavaScript testing framework.
+- **package.json**: Contains project dependencies and scripts.
+- **README.md**: This file.
+- **scripts/**: Contains custom scripts for Apex and SOQL.
+- **sfdx-project.json**: Contains Salesforce DX project configuration.
+
+## Configuration Files
+
+### [`sfdx-project.json`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/thbui/Documents/Salesforce/OMS/sfdx-project.json")
+
+This file contains useful configuration information for your project. Key properties include:
+
+- **packageDirectories**: Specifies the directories that contain the source code.
+- **name**: The name of the project.
+- **namespace**: The namespace for the project (if any).
+- **sfdcLoginUrl**: The Salesforce login URL.
+- **sourceApiVersion**: The API version to use.
+
+### [`config/project-scratch-def.json`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fconfig%2Fproject-scratch-def.json%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/thbui/Documents/Salesforce/OMS/config/project-scratch-def.json")
+
+Defines the configuration for scratch orgs. Key properties include:
+
+- **orgName**: The name of the organization.
+- **edition**: The edition of the Salesforce org.
+- **features**: Features to enable in the scratch org.
+- **settings**: Specific settings for the scratch org.
+
+## Lightning Web Components
+
+The project includes various Lightning Web Components (LWCs) located in the [`force-app/main/default/lwc/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Flwc%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/thbui/Documents/Salesforce/OMS/force-app/main/default/lwc/") directory. Key components include:
+
+- **orderForm**: A component for managing order forms.
+  - **orderForm.html**: The HTML template for the component.
+  - **orderForm.js**: The JavaScript controller for the component.
+  - **orderForm.css**: The CSS styles for the component.
+  - **orderForm.js-meta.xml**: The metadata configuration for the component.
+
+## Apex Classes
+
+Apex classes are located in the [`force-app/main/default/classes/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fclasses%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/thbui/Documents/Salesforce/OMS/force-app/main/default/classes/") directory. These classes contain the server-side logic for the application.
+
+## Unit Tests
+
+Unit tests are configured using Jest. The configuration file is [`jest.config.js`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fjest.config.js%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/thbui/Documents/Salesforce/OMS/jest.config.js").
+
+## Development and Deployment
+
+### Setting Up the Project
+
+1. Clone the repository.
+2. Install the Salesforce CLI.
+3. Authenticate with your Salesforce org: `sfdx auth:web:login`.
+4. Create a scratch org: [`sfdx force:org:create -f config/project-scratch-def.json`](command:_github.copilot.openSymbolFromReferences?%5B%22sfdx%20force%3Aorg%3Acreate%20-f%20config%2Fproject-scratch-def.json%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A1861%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A5186%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A6384%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A10312%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A7%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A3%2C%22character%22%3A15%7D%7D%5D%5D "Go to definition").
+5. Push the source to the scratch org: [`sfdx force:source:push`](command:_github.copilot.openSymbolFromReferences?%5B%22sfdx%20force%3Asource%3Apush%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A1861%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A5186%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A6384%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A10312%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A7%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A3%2C%22character%22%3A15%7D%7D%5D%5D "Go to definition").
+6. Assign a permission set: [`sfdx force:user:permset:assign -n YourPermSet`](command:_github.copilot.openSymbolFromReferences?%5B%22sfdx%20force%3Auser%3Apermset%3Aassign%20-n%20YourPermSet%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A1861%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A5186%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A6384%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A10312%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A7%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A3%2C%22character%22%3A15%7D%7D%5D%5D "Go to definition").
+7. Open the scratch org: [`sfdx force:org:open`](command:_github.copilot.openSymbolFromReferences?%5B%22sfdx%20force%3Aorg%3Aopen%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A1861%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A5186%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A6384%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fforce-app%2Fmain%2Fdefault%2Fprofiles%2Fchat.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A10312%2C%22character%22%3A53%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A7%7D%7D%2C%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22external%22%3A%22file%3A%2F%2F%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22path%22%3A%22%2FUsers%2Fthbui%2FDocuments%2FSalesforce%2FOMS%2Fsfdx-project.json%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A3%2C%22character%22%3A15%7D%7D%5D%5D "Go to definition").
+
+### Running Tests
+
+To run the unit tests, use the following command:
+
+```sh
+npm test
